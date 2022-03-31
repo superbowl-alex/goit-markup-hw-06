@@ -66,7 +66,16 @@ ul {
   font-size: inherit;
 }
 .hide {
-  display: none;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 .button {
   border: none;
@@ -439,6 +448,12 @@ ul {
 .footer .social-link:hover,
 .footer .social-link:focus {
   background-color: var(--accent-color);
+}
+.footer-subscribe-section {
+  margin-left: auto;
+}
+.footer-form {
+  display: flex;
 }
 /* Backdrop */
 .backdrop {
