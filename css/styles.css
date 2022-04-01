@@ -7,11 +7,11 @@
   --regular-black-color: #000000;
   --icon-color: #afb1b8;
   --footer-social-background-color: rgba(255, 255, 255, 0.1);
-  --hero-button-hover-color: #188ce8;
+  --button-hover-color: #188ce8;
   --primary-background-color: #ffffff;
   --secondary-background-color: #f5f4fa;
   --hero-background-color: #c4c4c4;
-  --footer-background-color: #2f303a;
+  --footer-background-color: rgb(47, 48, 58);
   --hero-overlay-color: rgba(47, 48, 58, 0.4);
   --work-overlay-color: rgba(47, 48, 58, 0.8);
   --modal-overlay-color: rgba(0, 0, 0, 0.2);
@@ -80,7 +80,10 @@ ul {
 .button {
   border: none;
   font-family: inherit;
-  display: inline-block;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
 }
 /* Лого */
 .logo {
@@ -192,7 +195,7 @@ ul {
   color: var(--regular-white-color);
   text-align: center;
 }
-/* Фон на блк  Hero */
+/* Фон на блок  Hero */
 .overlay {
   max-width: 1600px;
   height: 600px;
@@ -225,7 +228,6 @@ ul {
   border-radius: 4px;
   padding: 10px 32px;
   background-color: var(--accent-color);
-  cursor: pointer;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.88;
@@ -234,7 +236,7 @@ ul {
 }
 .hero-button:hover,
 .hero-button:focus {
-  background-color: var(--hero-button-hover-color);
+  background-color: var(--button-hover-color);
 }
 /* Наши преимущества */
 .features {
@@ -429,7 +431,7 @@ ul {
 .footer-item:not(:last-child) {
   margin-bottom: 9px;
 }
-.footer-social-subtitle {
+.footer-subtitle {
   margin-bottom: 20px;
   color: var(--regular-white-color);
   line-height: 1.14;
@@ -455,60 +457,35 @@ ul {
 .footer-form {
   display: flex;
 }
-/* Backdrop */
-.backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--modal-overlay-color);
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.footer-input {
+  width: 358px;
+  height: 50px;
+  padding-left: 16px;
+  margin-right: 12px;
+  background-color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.backdrop.is-hidden {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
+.footer-input::placeholder {
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  color: var(--contact-text-color);
 }
-/* Модальное окно */
-.modal {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 528px;
-  height: 581px;
-  background-color: var(--regular-white-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+.footer-subscribe-button {
+  width: 200px;
+  height: 50px;
+  color: var(--regular-white-color);
+  background-color: var(--accent-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+}
+.footer-input,
+.footer-subscribe-button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  transform: translate(-50%, -50%) scale(1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0);
-}
-.modal-button {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  padding: 0;
-  cursor: pointer;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: var(--regular-white-color);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-}
-.modal-close-icon {
-  fill: var(--regular-black-color);
-}
-
 /* Портфолио */
 /* Примеры работ */
 .examples {
@@ -529,7 +506,6 @@ ul {
   padding: 6px 22px;
   color: var(--title-text-color);
   background-color: var(--secondary-background-color);
-  cursor: pointer;
   font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.03em;
@@ -618,4 +594,139 @@ ul {
   font-size: 16px;
   line-height: 1.89;
   letter-spacing: 0.03em;
+}
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-overlay-color);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+/* Модальное окно */
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 528px;
+  height: 581px;
+  background-color: var(--regular-white-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+}
+.modal-button-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 0;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--regular-white-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.modal-close-icon {
+  fill: var(--regular-black-color);
+}
+/* Форма в модальном окне */
+.modal-form {
+  padding: 40px;
+}
+.modal-form-title {
+  display: block;
+  color: var(--title-text-color);
+  font-size: 20px;
+  line-height: 1.15;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+.modal-form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.01em;
+}
+.modal-form-field + .modal-form-field {
+  margin-top: 10px;
+}
+.modal-form-label {
+  color: var(--primary-text-color);
+}
+.modal-form-input,
+.modal-form-textarea {
+  margin-top: 4px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+}
+.modal-form-textarea {
+  height: 120px;
+  resize: none;
+  padding: 12px 16px;
+}
+.modal-form-textarea::placeholder {
+  font-size: 12px;
+  letter-spacing: 0.01em;
+  line-height: 1.17;
+  color: rgba(117, 117, 117, 0.5);
+}
+.modal-form-agreement {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  line-height: 1.71px;
+  letter-spacing: 0.03em;
+}
+.agreement-checkbox-input {
+}
+.agreement-checkbox-label {
+}
+.agreement-checkbox-link {
+}
+.modal-input-icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  fill: var(--title-text-color);
+}
+.modal-form-button {
+  margin-top: 30px;
+  padding: 10px 55px;
+  color: var(--regular-white-color);
+  background-color: var(--accent-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+.modal-form-button:hover,
+.modal-form-button:focus {
+  background-color: var(--button-hover-color);
 }
