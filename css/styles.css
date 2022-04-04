@@ -19,6 +19,7 @@
   --header-border-line-color: #ececec;
   --portfolio-border-line-color: #eeeeee;
   --item-gap: 30px;
+  --button-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 }
 body {
   background-color: var(--primary-background-color);
@@ -80,11 +81,32 @@ ul {
 .button {
   border: none;
   font-family: inherit;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
   cursor: pointer;
 }
+.button-main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 50px;
+  padding: 0;
+  box-shadow: var(--button-shadow);
+  border-radius: 4px;
+  color: var(--regular-white-color);
+  background-color: var(--accent-color);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.88;
+  letter-spacing: 0.06em;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button-main:hover,
+.button-main:focus {
+  background-color: var(--button-hover-color);
+}
+
 /* Лого */
 .logo {
   display: block;
@@ -222,21 +244,6 @@ ul {
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-.hero-button {
-  color: var(--regular-white-color);
-  border-radius: 4px;
-  padding: 10px 32px;
-  background-color: var(--accent-color);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.hero-button:hover,
-.hero-button:focus {
-  background-color: var(--button-hover-color);
 }
 /* Наши преимущества */
 .features {
@@ -460,8 +467,8 @@ ul {
 .footer-input {
   width: 358px;
   height: 50px;
-  padding-left: 16px;
   margin-right: 12px;
+  padding-left: 16px;
   background-color: inherit;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -471,20 +478,13 @@ ul {
   letter-spacing: 0.03em;
   color: var(--contact-text-color);
 }
-.footer-subscribe-button {
-  width: 200px;
-  height: 50px;
-  color: var(--regular-white-color);
-  background-color: var(--accent-color);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-}
-.footer-input,
-.footer-subscribe-button {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+.footer-input {
+  box-shadow: var(--button-shadow);
   border-radius: 4px;
+}
+.footer-button-icon {
+  margin-left: 10px;
+  fill: var(--regular-white-color);
 }
 /* Портфолио */
 /* Примеры работ */
@@ -502,6 +502,9 @@ ul {
   margin-right: 8px;
 }
 .filtre-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 4px;
   padding: 6px 22px;
   color: var(--title-text-color);
@@ -689,7 +692,7 @@ ul {
   margin-top: 4px;
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
-  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-form-input.textarea {
   height: 120px;
@@ -703,10 +706,14 @@ ul {
   color: rgba(117, 117, 117, 0.5);
 }
 .modal-form-field:focus-within .modal-form-input {
-  border: 1px solid var(--accent-color);
+  border-color: var(--accent-color);
 }
 .modal-form-field:focus-within {
   color: var(--accent-color);
+}
+.modal-form-field:focus-within .modal-form-input.textarea::placeholder {
+  font-size: 14px;
+  line-height: 1.14;
 }
 .modal-input-icon {
   position: absolute;
@@ -716,37 +723,29 @@ ul {
   fill: currentColor;
 }
 .modal-form-agreement {
-  /* display: flex; */
-  align-items: center;
+  display: flex;
+  height: 24px;
   margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
   line-height: 1.71px;
   letter-spacing: 0.03em;
 }
-.agreement-checkbox-input {
-  /* -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none; */
+.agreement-checkbox-icon {
+  margin-right: 8px;
+  fill: var(--regular-white-color);
+  border: 2px solid var(--title-text-color);
+  border-radius: 2px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.agreement-checkbox-label {
+.agreement-checkbox-input:focus + .agreement-checkbox-icon {
+  border-color: var(--accent-color);
+}
+.agreement-checkbox-input:checked + .agreement-checkbox-icon {
+  background-color: var(--accent-color);
+  border: 0;
 }
 .agreement-checkbox-link {
-}
-.modal-form-button {
-  margin-top: 30px;
-  padding: 10px 55px;
-  color: var(--regular-white-color);
-  background-color: var(--accent-color);
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  letter-spacing: 0.06em;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.modal-form-button:hover,
-.modal-form-button:focus {
-  background-color: var(--button-hover-color);
+  color: var(--accent-color);
 }
