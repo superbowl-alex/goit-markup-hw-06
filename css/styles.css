@@ -234,9 +234,6 @@ ul {
   background-position: center;
   background-size: cover;
 }
-.hero > .container {
-  width: 726px;
-}
 .hero-title {
   margin-bottom: var(--item-gap);
   font-weight: 900;
