@@ -402,7 +402,6 @@ ul {
   border-color: var(--accent-color);
 }
 .clients-icon {
-  display: inline-block;
   fill: currentColor;
 }
 /* Footer */
